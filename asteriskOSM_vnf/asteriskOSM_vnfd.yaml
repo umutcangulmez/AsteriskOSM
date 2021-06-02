@@ -1,0 +1,161 @@
+vnfd:
+  description: A VNF consisting of 2 VDUs connected to an internal VL
+
+  # The Deployment Flavour (DF) "ties together" all the other definitions
+  id: asteriskOSM-vnf
+  mgmt-cp: vnf-mgmt-ext
+  product-name: asteriskOSM-vnf
+  description: A VNF consisting of 2 VDUs connected to an internal VL, one VDU is for Asterisk and the other one for test call with softphone
+  version: 1.0
+  
+  df:
+  - id: default-df
+    instantiation-level:
+    - id: default-instantiation-level
+      vdu-level:
+      - number-of-instances: 1
+        vdu-id: asteriskVM
+      - number-of-instances: 1
+        vdu-id: phoneVM
+    vdu-profile:
+    - id: asteriskVM
+      min-number-of-instances: 1
+    - id: phoneVM
+      min-number-of-instances: 1
+    # Todo
+    lcm-operations-configuration:
+      operate-vnf-op-config:
+        day1-2:
+          - id: 
+            execution-environment-list:
+            - id: 
+              juju:
+                charm: 
+            config-access:
+              ssh-access:
+                default-user: ubuntu
+                required: true
+            config-primitive:
+            - name: 
+              execution-environment-ref: 
+              parameter:
+              - data-type: 
+                default-value: 
+                name: 
+            initial-config-primitive:
+            - name: 
+              execution-environment-ref: 
+              parameter:
+              - name: 
+                value: 
+              - name: 
+                value: 
+              - name: 
+                value: 
+              seq: 1
+            - name: 
+              execution-environment-ref: 
+              parameter:
+              - data-type: 
+                name: 
+                value: 
+              seq: 2
+  # External CPs are exposed externally, to be referred at the NSD
+  ext-cpd:
+  - id: vnf-asterisk-ext
+    int-cpd:
+      cpd: asteriskVM-eth0-int
+      vdu-id: asteriskVM
+  - id: vnf-phone-ext
+    int-cpd:
+      cpd: phoneVM-xe0-int
+      vdu-id: phoneVM
+  sw-image-desc:
+  - id: ubuntu18.04
+    image: ubuntu18.04
+    name: ubuntu18.04
+  - id: ubuntu18.04-aws
+    name: ubuntu18.04-aws
+    image: ubuntu/images/hvm-ssd/ubuntu-artful-17.10-amd64-server-20180509
+    vim-type: aws
+  - id: ubuntu18.04-azure
+    name: ubuntu18.04-azure
+    image: Canonical:UbuntuServer:18.04-LTS:latest
+    vim-type: azure
+
+  id: hackfest_multivdu-vnf
+
+  # Internal VLDs are defined globally at the VNFD
+  int-virtual-link-desc:
+  - id: internal
+
+  # A external CP should be used for VNF management
+  mgmt-cp: vnf-asterisk-ext
+
+  # Inside the VDU block, multiple VDUs, and their internal CPs are modelled
+  vdu:
+  - cloud-init-file: cloud-config.txt
+    id: asteriskVM
+
+    # Internal CPs are modelled inside each VDU
+    int-cpd:
+    - id: asteriskVM-eth0-int
+      virtual-network-interface-requirement:
+      - name: asteriskVM-eth0
+        position: 1
+        virtual-interface:
+          type: PARAVIRT
+    - id: asteriskVM-eth1-int
+      int-virtual-link-desc: internal
+      virtual-network-interface-requirement:
+      - name: asteriskVM-eth1
+        position: 2
+        virtual-interface:
+          type: PARAVIRT
+
+    name: asteriskVM
+    sw-image-desc: ubuntu18.04
+    virtual-compute-desc: asteriskVM-compute
+    virtual-storage-desc:
+    - asteriskVM-storage
+
+  - id: phoneVM
+
+    # Internal CPs are modelled inside each VDU
+    int-cpd:
+    - id: phoneVM-eth0-int
+      int-virtual-link-desc: internal
+      virtual-network-interface-requirement:
+      - name: phoneVM-eth0
+        position: 1
+        virtual-interface:
+          type: PARAVIRT
+    - id: phoneVM-xe0-int
+      virtual-network-interface-requirement:
+      - name: phoneVM-xe0
+        position: 2
+        virtual-interface:
+          type: PARAVIRT
+
+    name: phoneVM
+    sw-image-desc: ubuntu18.04
+    virtual-compute-desc: phoneVM-compute
+    virtual-storage-desc:
+    - phoneVM-storage
+  version: '1.0'
+  virtual-compute-desc:
+  - id: asteriskVM-compute
+    virtual-memory:
+      size: "2.0"
+    virtual-cpu:
+      num-virtual-cpu: "1"
+  - id: phoneVM-compute
+    virtual-memory:
+      size: "1.0"
+    virtual-cpu:
+      num-virtual-cpu: "1"
+  virtual-storage-desc:
+  - id: asteriskVM-storage
+    size-of-storage: "10"
+  - id: phoneVM-storage
+    size-of-storage: "10"

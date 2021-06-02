@@ -1,0 +1,42 @@
+nsd:
+  nsd:
+  - description: NS with 2 VNFs connected by phonenet and asterisknet VLs
+    id: hackfest_multivdu-ns
+    name: hackfest_multivdu-ns
+    version: '1.0'
+
+    # External VLDs  are defined globally:
+    virtual-link-desc:
+    - id: asterisknet
+      mgmt-network: 'true'
+    - id: phonenet
+    vnfd-id:
+    - hackfest_multivdu-vnf
+
+    df:
+    - id: default-df
+
+      # External VLD mappings to CPs are defined inside the deployment flavour's vnf-profile:
+      vnf-profile:
+      - id: '1'
+        virtual-link-connectivity:
+        - constituent-cpd-id:
+          - constituent-base-element-id: '1'
+            constituent-cpd-id: vnf-asterisk-ext
+          virtual-link-profile-id: asterisknet
+        - constituent-cpd-id:
+          - constituent-base-element-id: '1'
+            constituent-cpd-id: vnf-phone-ext
+          virtual-link-profile-id: phonenet
+        vnfd-id: hackfest_multivdu-vnf
+      - id: '2'
+        virtual-link-connectivity:
+        - constituent-cpd-id:
+          - constituent-base-element-id: '2'
+            constituent-cpd-id: vnf-asterisk-ext
+          virtual-link-profile-id: asterisknet
+        - constituent-cpd-id:
+          - constituent-base-element-id: '2'
+            constituent-cpd-id: vnf-phone-ext
+          virtual-link-profile-id: phonenet
+        vnfd-id: hackfest_multivdu-vnf
