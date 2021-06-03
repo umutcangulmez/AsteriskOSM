@@ -1,8 +1,8 @@
 nsd:
   nsd:
   - description: NS with 2 VNFs connected by phonenet and asterisknet VLs
-    id: hackfest_multivdu-ns
-    name: hackfest_multivdu-ns
+    id: asteriskOSM-ns
+    name: asteriskOSM-ns
     version: '1.0'
 
     # External VLDs  are defined globally:
@@ -11,7 +11,7 @@ nsd:
       mgmt-network: 'true'
     - id: phonenet
     vnfd-id:
-    - hackfest_multivdu-vnf
+    - asteriskOSM-vnf
 
     df:
     - id: default-df
@@ -28,7 +28,7 @@ nsd:
           - constituent-base-element-id: '1'
             constituent-cpd-id: vnf-phone-ext
           virtual-link-profile-id: phonenet
-        vnfd-id: hackfest_multivdu-vnf
+        vnfd-id: asteriskOSM-vnf
       - id: '2'
         virtual-link-connectivity:
         - constituent-cpd-id:
@@ -39,4 +39,4 @@ nsd:
           - constituent-base-element-id: '2'
             constituent-cpd-id: vnf-phone-ext
           virtual-link-profile-id: phonenet
-        vnfd-id: hackfest_multivdu-vnf
+        vnfd-id: asteriskOSM-vnf

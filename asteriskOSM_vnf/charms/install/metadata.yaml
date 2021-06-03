@@ -1,0 +1,14 @@
+name: install
+summary: Asterisk VNF
+maintainer: Umut Can Gulmez <umutcangulmez@gmail.com>
+description: |
+  This is an VNF onboarding for Asterisk on Open Source Mano
+tags:
+  - nfv
+subordinate: false
+series:
+  - bionic
+  - xenial
+peers: # This will give HA capabilities to your Proxy Charm
+  proxypeer:
+    interface: proxypeer

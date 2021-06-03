@@ -26,40 +26,51 @@ vnfd:
     lcm-operations-configuration:
       operate-vnf-op-config:
         day1-2:
-          - id: 
+          - id: asteriskOSM-vnf
             execution-environment-list:
-            - id: 
+            - id: install-ee
               juju:
-                charm: 
+                charm: install
             config-access:
               ssh-access:
                 default-user: ubuntu
                 required: true
             config-primitive:
-            - name: 
-              execution-environment-ref: 
+            - name: create_sip_account
+              execution-environment-ref: install-ee 
               parameter:
-              - data-type: 
-                default-value: 
-                name: 
+              - data-type: STRING
+                default-value: 7001
+                name: accountId
+            
+            - name: add_extention
+              execution-environment-ref: install-ee 
+              parameter:
+              - data-type: STRING
+                default-value: 7001
+                name: extentionId
+
             initial-config-primitive:
-            - name: 
-              execution-environment-ref: 
+            - name: configure_remote
+              execution-environment-ref: install-ee
               parameter:
-              - name: 
-                value: 
-              - name: 
-                value: 
-              - name: 
-                value: 
+              - name: ssh-hostname
+                value: <rw_mgmt_ip>
+              - name: ssh-username
+                value: admin
+              - name: ssh-password
+                value: osm4u
               seq: 1
-            - name: 
-              execution-environment-ref: 
-              parameter:
-              - data-type: 
-                name: 
-                value: 
+            - name: install_asterisk
+              execution-environment-ref: install-ee            
               seq: 2
+            - name: config_sip
+              execution-environment-ref: install-ee            
+              seq: 3
+            - name: restart_asterisk
+              execution-environment-ref: install-ee            
+              seq: 4              
+
   # External CPs are exposed externally, to be referred at the NSD
   ext-cpd:
   - id: vnf-asterisk-ext

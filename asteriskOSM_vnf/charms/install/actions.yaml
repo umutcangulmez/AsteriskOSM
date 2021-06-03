@@ -1,0 +1,62 @@
+# Actions to be implemented in src/charm.py
+configure-remote:
+  description: "Configures the remote server"
+  params:
+    destination_ip:
+      description: "IP of the remote server"
+      type: string
+      default: ""
+  required:
+    - destination_ip
+configure_remote:
+  description: "configure_remote"
+
+install_asterisk:
+  description: "install asterisk"
+
+config_sip:
+  description: "config sip"
+
+create_sip_account:
+  description: "create sip account"
+  params:
+    accountId:
+      description: "accountId"
+      type: string
+      default: "7001"
+  required:
+    - accountId
+
+add_extention:
+  description: "add_extention"
+  params:
+    extentionId:
+      description: "extentionId"
+      type: string
+      default: "7001"
+  required:
+    - extentionId
+restart_asterisk:
+  description: "restart_asterisk"
+connect_asterisk:
+  description: "connect_asterisk"
+connect_running_asterisk:
+  description: "connect_running_asterisk"
+
+
+# Required by charms.osm.sshproxy
+run:
+  description: "Run an arbitrary command"
+  params:
+    command:
+      description: "The command to execute."
+      type: string
+      default: ""
+  required:
+    - command
+generate-ssh-key:
+  description: "Generate a new SSH keypair for this unit. This will replace any existing previously generated keypair."
+verify-ssh-credentials:
+  description: "Verify that this unit can authenticate with server specified by ssh-hostname and ssh-username."
+get-ssh-public-key:
+  description: "Get the public SSH key for this unit."
