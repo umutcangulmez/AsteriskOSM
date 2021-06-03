@@ -94,7 +94,6 @@ vnfd:
     image: Canonical:UbuntuServer:18.04-LTS:latest
     vim-type: azure
 
-  id: hackfest_multivdu-vnf
 
   # Internal VLDs are defined globally at the VNFD
   int-virtual-link-desc:
@@ -157,7 +156,7 @@ vnfd:
   virtual-compute-desc:
   - id: asteriskVM-compute
     virtual-memory:
-      size: "2.0"
+      size: "1.0"
     virtual-cpu:
       num-virtual-cpu: "1"
   - id: phoneVM-compute

@@ -1,0 +1,1 @@
+93306de703686effebd73e820b60c806	asteriskOSM_ns/asteriskOSM_nsd.yaml
