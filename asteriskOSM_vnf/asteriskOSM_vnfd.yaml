@@ -42,16 +42,17 @@ vnfd:
               - data-type: STRING
                 default-value: 7001
                 name: accountId
-            config-primitive: 
             - name: add_extention
               execution-environment-ref: install-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
                 name: extentionId
-
+            - name: restart_asterisk
+              execution-environment-ref: install-ee            
+                               
             initial-config-primitive:
-            - name: configure_remote
+            - name: config
               execution-environment-ref: install-ee
               parameter:
               - name: ssh-hostname
