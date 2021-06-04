@@ -8,8 +8,6 @@ configure-remote:
       default: ""
   required:
     - destination_ip
-configure_remote:
-  description: "configure_remote"
 
 install_asterisk:
   description: "install asterisk"
@@ -36,10 +34,15 @@ add_extention:
       default: "7001"
   required:
     - extentionId
+
 restart_asterisk:
   description: "restart_asterisk"
+
+  
 connect_asterisk:
   description: "connect_asterisk"
+
+  
 connect_running_asterisk:
   description: "connect_running_asterisk"
 

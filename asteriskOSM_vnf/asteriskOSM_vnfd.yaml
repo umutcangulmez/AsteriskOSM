@@ -42,7 +42,7 @@ vnfd:
               - data-type: STRING
                 default-value: 7001
                 name: accountId
-            
+            config-primitive: 
             - name: add_extention
               execution-environment-ref: install-ee 
               parameter:
