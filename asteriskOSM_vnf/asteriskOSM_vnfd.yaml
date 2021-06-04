@@ -36,21 +36,21 @@ vnfd:
                 default-user: ubuntu
                 required: true
             config-primitive:
-            - name: create_sip_account
+            - name: create-sip-account
               execution-environment-ref: install-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
                 name: accountId
-            - name: add_extention
+            - name: add-extention
               execution-environment-ref: install-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
                 name: extentionId
-            - name: restart_asterisk
+            - name: restart-asterisk
               execution-environment-ref: install-ee            
-                               
+
             initial-config-primitive:
             - name: config
               execution-environment-ref: install-ee
@@ -62,13 +62,13 @@ vnfd:
               - name: ssh-password
                 value: osm4u
               seq: 1
-            - name: install_asterisk
+            - name: install-asterisk
               execution-environment-ref: install-ee            
               seq: 2
-            - name: config_sip
+            - name: config-sip
               execution-environment-ref: install-ee            
               seq: 3
-            - name: restart_asterisk
+            - name: restart-asterisk
               execution-environment-ref: install-ee            
               seq: 4              
 

@@ -9,13 +9,13 @@ configure-remote:
   required:
     - destination_ip
 
-install_asterisk:
+install-asterisk:
   description: "install asterisk"
 
 config_sip:
   description: "config sip"
 
-create_sip_account:
+create-sip-account:
   description: "create sip account"
   params:
     accountId:
@@ -25,7 +25,7 @@ create_sip_account:
   required:
     - accountId
 
-add_extention:
+add-extention:
   description: "add_extention"
   params:
     extentionId:
@@ -35,15 +35,15 @@ add_extention:
   required:
     - extentionId
 
-restart_asterisk:
+restart-asterisk:
   description: "restart_asterisk"
 
   
-connect_asterisk:
+connect-asterisk:
   description: "connect_asterisk"
 
   
-connect_running_asterisk:
+connect-running-asterisk:
   description: "connect_running_asterisk"
 
 start:
