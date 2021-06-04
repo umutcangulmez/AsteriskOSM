@@ -77,16 +77,13 @@ class SampleProxyCharm(SSHProxyCharm):
     #         event.fail("Unit is not leader")
 
     def install_asterisk(self,event):
-        if self.model.unit.is_leader():
-            stderr = None
-            try:
-                proxy = self.get_ssh_proxy()
-                stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
-                event.set_results({"output": stdout})
-            except Exception as e:
-                event.fail("Action failed {}. Stderr: {}".format(e, stderr))
-        else:
-            event.fail("Unit is not leader")
+        stderr = None
+        try:
+            proxy = self.get_ssh_proxy()
+            stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
+            event.set_results({"output": stdout})
+        except Exception as e:
+            event.fail("Action failed {}. Stderr: {}".format(e, stderr))
 
 
 
