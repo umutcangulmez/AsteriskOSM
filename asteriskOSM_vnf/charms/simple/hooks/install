@@ -20,13 +20,13 @@ class SampleProxyCharm(SSHProxyCharm):
         # Listen to the touch action event
         # self.framework.observe(self.on.configure_remote_action, self.configure_remote)
         # self.framework.observe(self.on.start_service_action, self.start_service)
-        self.framework.observe(self.on.install_asterisk_action,self.install_asterisk)
-        self.framework.observe(self.on.config_sip_action,self.config_sip)
-        self.framework.observe(self.on.create_sip_account_action,self.create_sip_account)
-        self.framework.observe(self.on.add_extention_action,self.add_extention)
-        self.framework.observe(self.on.restart_asterisk_action,self.restart_asterisk)
-        self.framework.observe(self.on.connect_asterisk_action,self.connect_asterisk)
-        self.framework.observe(self.on.connect_running_asterisk_action,self.connect_running_asterisk)
+        self.framework.observe(self.on.installasterisk_action,self.installasterisk)
+        self.framework.observe(self.on.configsip_action,self.configsip)
+        self.framework.observe(self.on.createsipaccount_action,self.createsipaccount)
+        self.framework.observe(self.on.addextention_action,self.addextention)
+        self.framework.observe(self.on.restartasterisk_action,self.restartasterisk)
+        self.framework.observe(self.on.connectasterisk_action,self.connectasterisk)
+        self.framework.observe(self.on.connectrunningasterisk_action,self.connectrunningasterisk)
 
     def on_config_changed(self, event):
         """Handle changes in configuration"""
@@ -76,10 +76,12 @@ class SampleProxyCharm(SSHProxyCharm):
     #     else:
     #         event.fail("Unit is not leader")
 
-    def install_asterisk(self,event):
+    def installasterisk(self,event):
         stderr = None
         try:
             proxy = self.get_ssh_proxy()
+            stdout,stderr = proxy.run("sudo apt-get update")
+            stdout,stderr = proxy.run("sudo apt-get update -y")
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
             event.set_results({"output": stdout})
         except Exception as e:
@@ -87,12 +89,13 @@ class SampleProxyCharm(SSHProxyCharm):
 
 
 
-    def config_sip(self,event):
+    def configsip(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
                 proxy = self.get_ssh_proxy()
-                stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0\n \" | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("sudo touch aa ~/")
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
@@ -100,11 +103,13 @@ class SampleProxyCharm(SSHProxyCharm):
             event.fail("Unit is not leader")
             return           
 
-    def create_sip_account(self,event):
+    def createsipaccount(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
-                accountId = event.params["accountId"]
+
+                account = event.params["accountId"]
+                accountId = str(account)
                 proxy = self.get_ssh_proxy()
                 stdout,stderr = proxy.run("echo -e \"["+accountId+"]\ntype=friend\nhost=dynamic\nsecret="+accountId+"\ncontext=internal \" | sudo tee -a /etc/asterisk/sip.conf")
                 event.set_results({"output":stdout})
@@ -114,13 +119,15 @@ class SampleProxyCharm(SSHProxyCharm):
             event.fail("Unit is not leader")
             return  
     
-    def add_extention(self,event):
+    def addextention(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
-                extensionId = event.params["extensionId"]                
+                extension = event.params["extensionId"]                
+                extensionsId = str(extension)
+                cmd = "echo -e \" [internal]\nexten => "+extensionId+",1,Answer()\nexten => "+extensionId+",2,Dial(SIP/"+extensionId+",60)\nexten => "+extensionId+",3,Playback(vm-nobodyavail)\nexten => "+extensionId+",4,VoiceMail("+extensionId+"@main)\nexten => "+extensionId+",5,Hangup() \" | sudo tee -a /etc/asterisk/extensions.conf"
                 proxy = self.get_ssh_proxy()
-                stdout,stderr = proxy.run("echo -e \" [internal]\nexten => "+extensionId+",1,Answer()\nexten => "+extensionId+",2,Dial(SIP/"+extensionId+",60)\nexten => "+extensionId+",3,Playback(vm-nobodyavail)\nexten => "+extensionId+",4,VoiceMail("+extensionId+"@main)\nexten => "+extensionId+",5,Hangup()\n \" | sudo tee -a /etc/asterisk/extensions.conf")
+                stdout,stderr = proxy.run(cmd)
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
@@ -128,11 +135,18 @@ class SampleProxyCharm(SSHProxyCharm):
             event.fail("Unit is not leader")
             return 
 
-    def restart_asterisk(self,event):
+    def restartasterisk(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
                 proxy = self.get_ssh_proxy()
+                # cmd = "sudo sed -i 's\";\[radius\]\"\[radius\]\"g' /etc/asterisk/cdr.conf"
+                # stdout,stderr = proxy.run(cmd)
+                # cmd = "sudo sed -i 's\";radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf\"radiuscfg => /etc/radcli/radiusclient.conf\"g' /etc/asterisk/cdr.conf"
+                # stdout,stderr = proxy.run(cmd)
+                # cmd = "sudo sed -i 's\";radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf\"radiuscfg => /etc/radcli/radiusclient.conf\"g' /etc/asterisk/cel.conf"
+                # stdout,stderr = proxy.run(cmd)
+
                 stdout,stderr = proxy.run("sudo systemctl restart asterisk")
                 stdout,stderr = proxy.run("sudo systemctl enable asterisk")
                 event.set_results({"output":stdout})
@@ -142,7 +156,7 @@ class SampleProxyCharm(SSHProxyCharm):
             event.fail("Unit is not leader")
             return           
 
-    def connect_asterisk(self,event):
+    def connectasterisk(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
@@ -155,7 +169,7 @@ class SampleProxyCharm(SSHProxyCharm):
             event.fail("Unit is not leader")
             return       
 
-    def connect_running_asterisk(self,event):
+    def connectrunningasterisk(self,event):
         if self.model.unit.is_leader():
             stderr = None
             try:
