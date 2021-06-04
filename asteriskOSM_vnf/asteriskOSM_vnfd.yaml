@@ -28,32 +28,32 @@ vnfd:
         day1-2:
           - id: asteriskOSM-vnf
             execution-environment-list:
-            - id: install-ee
+            - id: simple-ee
               juju:
-                charm: install
+                charm: simple
             config-access:
               ssh-access:
                 default-user: ubuntu
                 required: true
             config-primitive:
             - name: create-sip-account
-              execution-environment-ref: install-ee 
+              execution-environment-ref: simple-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
                 name: accountId
             - name: add-extention
-              execution-environment-ref: install-ee 
+              execution-environment-ref: simple-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
                 name: extentionId
             - name: restart-asterisk
-              execution-environment-ref: install-ee            
+              execution-environment-ref: simple-ee            
 
             initial-config-primitive:
             - name: config
-              execution-environment-ref: install-ee
+              execution-environment-ref: simple-ee
               parameter:
               - name: ssh-hostname
                 value: <rw_mgmt_ip>
@@ -62,14 +62,14 @@ vnfd:
               - name: ssh-password
                 value: osm4u
               seq: 1
-            - name: install-asterisk
-              execution-environment-ref: install-ee            
+            - name: simple-asterisk
+              execution-environment-ref: simple-ee            
               seq: 2
             - name: config-sip
-              execution-environment-ref: install-ee            
+              execution-environment-ref: simple-ee            
               seq: 3
             - name: restart-asterisk
-              execution-environment-ref: install-ee            
+              execution-environment-ref: simple-ee            
               seq: 4              
 
   # External CPs are exposed externally, to be referred at the NSD
