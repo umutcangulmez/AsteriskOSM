@@ -12,7 +12,7 @@ configure-remote:
 install-asterisk:
   description: "install asterisk"
 
-config_sip:
+config-sip:
   description: "config sip"
 
 create-sip-account:
