@@ -3,7 +3,7 @@ vnfd:
 
   # The Deployment Flavour (DF) "ties together" all the other definitions
   id: asteriskOSM-vnf
-  mgmt-cp: vnf-mgmt-ext
+  mgmt-cp: vnf-asterisk-ext
   product-name: asteriskOSM-vnf
   description: A VNF consisting of 2 VDUs connected to an internal VL, one VDU is for Asterisk and the other one for test call with softphone
   version: 1.0
@@ -58,7 +58,7 @@ vnfd:
               - name: ssh-hostname
                 value: <rw_mgmt_ip>
               - name: ssh-username
-                value: admin
+                value: ubuntu
               - name: ssh-password
                 value: osm4u
               seq: 1
