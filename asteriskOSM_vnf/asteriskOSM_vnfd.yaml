@@ -62,7 +62,7 @@ vnfd:
               - name: ssh-password
                 value: osm4u
               seq: 1
-            - name: simple-asterisk
+            - name: install-asterisk
               execution-environment-ref: simple-ee            
               seq: 2
             - name: config-sip
