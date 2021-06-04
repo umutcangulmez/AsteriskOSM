@@ -1,13 +1,13 @@
 # Actions to be implemented in src/charm.py
-configure-remote:
-  description: "Configures the remote server"
-  params:
-    destination_ip:
-      description: "IP of the remote server"
-      type: string
-      default: ""
-  required:
-    - destination_ip
+# configure-remote:
+#   description: "Configures the remote server"
+#   params:
+#     destination_ip:
+#       description: "IP of the remote server"
+#       type: string
+#       default: ""
+#   required:
+#     - destination_ip
 
 install-asterisk:
   description: "install asterisk"
