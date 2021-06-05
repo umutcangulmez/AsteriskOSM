@@ -28,15 +28,15 @@ createsipaccount:
   required:
     - accountId
 
-addextention:
-  description: "add_extention"
+addextension:
+  description: "addextension"
   params:
-    extentionId:
-      description: "extentionId"
+    extensionId:
+      description: "extensionId"
       type: string
       default: "7001"
   required:
-    - extentionId
+    - extensionId
 
 restartasterisk:
   description: "restart_asterisk"

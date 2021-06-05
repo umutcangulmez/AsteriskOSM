@@ -1,8 +1,8 @@
-5534604c49e4809201cc0ed088b60f73	asteriskOSM_vnf/asteriskOSM_vnfd.yaml
+c9c67b5552a455887f817da7de43df95	asteriskOSM_vnf/asteriskOSM_vnfd.yaml
 35ddeaa9b00512b3b335dc9d44baf61e	asteriskOSM_vnf/charms/simple/metadata.yaml
-d106dca908c87f7fcc00f49aae9f6891	asteriskOSM_vnf/charms/simple/actions.yaml
+451f5ce72b13843e4fede3f7adc73c72	asteriskOSM_vnf/charms/simple/actions.yaml
 8fd551f48515aac67cea404258452406	asteriskOSM_vnf/charms/simple/config.yaml
-466997f2b0a5c911f7d4d579f436bb9c	asteriskOSM_vnf/charms/simple/src/charm.py
+66f8c3d778721d17bf2db6837eb2dd08	asteriskOSM_vnf/charms/simple/src/charm.py
 e682f327bf515278f257e923a2469079	asteriskOSM_vnf/charms/simple/mod/charms.osm/README.md
 74b613112dcf6f6b0c4c1d14a3441184	asteriskOSM_vnf/charms/simple/mod/charms.osm/setup.py
 d41d8cd98f00b204e9800998ecf8427e	asteriskOSM_vnf/charms/simple/mod/charms.osm/charms/__init__.py

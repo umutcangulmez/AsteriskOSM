@@ -42,12 +42,12 @@ vnfd:
               - data-type: STRING
                 default-value: 7001
                 name: accountId
-            - name: addextention
+            - name: addextension
               execution-environment-ref: simple-ee 
               parameter:
               - data-type: STRING
                 default-value: 7001
-                name: extentionId
+                name: extensionId
             - name: restartasterisk
               execution-environment-ref: simple-ee            
 
@@ -75,9 +75,7 @@ vnfd:
             - name: configsip
               execution-environment-ref: simple-ee            
               seq: 3
-            - name: restartasterisk
-              execution-environment-ref: simple-ee            
-              seq: 4              
+            
 
   # External CPs are exposed externally, to be referred at the NSD
   ext-cpd:
