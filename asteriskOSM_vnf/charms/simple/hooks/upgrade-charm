@@ -50,7 +50,9 @@ class SampleProxyCharm(SSHProxyCharm):
             stdout,stderr = proxy.run("sudo apt-get upgrade -y")
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
             stdout,stderr = proxy.run("touch first")
-            stdout,stderr = proxy.run("printf  \"aa\naaaaa\" | tee -a /home/ubuntu/first")
+            stdout,stderr = proxy.run("printf  \"aa\" | tee -a /home/ubuntu/first")
+            stdout,stderr = proxy.run("printf  \"bb\" | tee -a /home/ubuntu/first")
+            stdout,stderr = proxy.run("printf  \"cc\" | tee -a /home/ubuntu/first")
             # fix symbolic links after install 
             # cmd = "sudo sed -i 's\";\\[radius\\]\"\\[radius\\]\"g' /etc/asterisk/cdr.conf"
             # stdout,stderr = proxy.run(cmd)                     
@@ -71,12 +73,15 @@ class SampleProxyCharm(SSHProxyCharm):
             try:
                 proxy = self.get_ssh_proxy()
 
-
-                cmd = "printf '[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 ' | sudo tee -a /etc/asterisk/sip.conf"           
-                # stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")                
-                stdout,stderr = proxy.run(cmd)
+                with open("sip.conf") as fp: 
+                    while True:
+                        line = fp.readline()
+                        if not line:
+                            break
+                        cmd = line + " | sudo tee -a /etc/asterisk/sip.conf "
+                        stdout,stderr = proxy.run(cmd)
                 event.set_results({"output":stdout})
-
+            # stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")                
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
         else:
@@ -91,7 +96,12 @@ class SampleProxyCharm(SSHProxyCharm):
                 account = event.params["accountId"]
                 accountId = str(account)
                 proxy = self.get_ssh_proxy()
-                stdout,stderr = proxy.run("printf '["+accountId+"]\ntype=friend\nhost=dynamic\nsecret="+accountId+"\ncontext=internal ' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf '["+accountId+"]' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'type=friend' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'host=dynamic' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'secret="+accountId+"'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'context=internal ' | sudo tee -a /etc/asterisk/sip.conf")
+        
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
@@ -105,9 +115,22 @@ class SampleProxyCharm(SSHProxyCharm):
             try:
                 extension = event.params["extensionId"]                
                 extensionsId = str(extension)
-                cmd = "printf '[internal]\nexten => "+extensionId+",1,Answer()\nexten => "+extensionId+",2,Dial(SIP/"+extensionId+",60)\nexten => "+extensionId+",3,Playback(vm-nobodyavail)\nexten => "+extensionId+",4,VoiceMail("+extensionId+"@main)\nexten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf"
                 proxy = self.get_ssh_proxy()
+
+                cmd = "printf '[internal]' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                cmd = "printf 'exten => "+extensionId+",1,Answer()' | sudo tee -a /etc/asterisk/extensions.conf"
+                stdout,stderr = proxy.run(cmd)
+                cmd = "printf 'exten => "+extensionId+",2,Dial(SIP/"+extensionId+",60) ' | sudo tee -a /etc/asterisk/extensions.conf"
+                stdout,stderr = proxy.run(cmd)
+                cmd = "printf 'exten => "+extensionId+",3,Playback(vm-nobodyavail) ' | sudo tee -a /etc/asterisk/extensions.conf"
+                stdout,stderr = proxy.run(cmd)
+                cmd = "printf 'exten => "+extensionId+",4,VoiceMail("+extensionId+"@main) ' | sudo tee -a /etc/asterisk/extensions.conf"
+                stdout,stderr = proxy.run(cmd)
+                cmd = "printf 'exten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf"
+                stdout,stderr = proxy.run(cmd)
+                                                               
+
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
