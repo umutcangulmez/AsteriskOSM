@@ -85,7 +85,7 @@ class SampleProxyCharm(SSHProxyCharm):
             stdout,stderr = proxy.run("sudo apt-get upgrade -y")
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
             stdout,stderr = proxy.run("touch aa")
-            with open("aa", "a") as f:
+            with open("/home/ubuntu/aa", "a") as f:
                 f.write("Now the file has more content!")
             # cmd = "sudo sed -i 's\";\\[radius\\]\"\\[radius\\]\"g' /etc/asterisk/cdr.conf"
             # stdout,stderr = proxy.run(cmd)            
