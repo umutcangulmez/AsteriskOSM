@@ -51,6 +51,7 @@ class SampleProxyCharm(SSHProxyCharm):
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
             stdout,stderr = proxy.run("touch first")
             stdout,stderr = proxy.run("printf  \"aa\" | tee -a /home/ubuntu/first")
+            stdout,stderr = proxy.run("echo | sudo tee -a /home/ubuntu/first")
             stdout,stderr = proxy.run("printf  \"bb\" | tee -a /home/ubuntu/first")
             stdout,stderr = proxy.run("printf  \"cc\" | tee -a /home/ubuntu/first")
             # fix symbolic links after install 
@@ -81,21 +82,35 @@ class SampleProxyCharm(SSHProxyCharm):
                 #             break
                 #         cmd = "printf '+line+' | sudo tee -a /etc/asterisk/sip.conf "
                 #         stdout,stderr = proxy.run(cmd)
-                
+
                 stdout,stderr = proxy.run("printf '[general]' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'context=internal' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'allowguest=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'allowoverlap=no'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'bindport=5060 ' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'bindaddr=0.0.0.0' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'srvlookup=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'disallow=all' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'allow=ulaw'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'alwaysauthreject=yes ' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'canreinvite=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'nat=yes' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'session-timers=refuse' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'localnet=192.168.0.0/255.255.255.0'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                         
 
                 event.set_results({"output":stdout})
@@ -115,11 +130,16 @@ class SampleProxyCharm(SSHProxyCharm):
                 accountId = str(account)
                 proxy = self.get_ssh_proxy()
                 stdout,stderr = proxy.run("printf '["+accountId+"]' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")                
                 stdout,stderr = proxy.run("printf 'type=friend' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'host=dynamic' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'secret="+accountId+"'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 stdout,stderr = proxy.run("printf 'context=internal ' | sudo tee -a /etc/asterisk/sip.conf")
-        
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
@@ -139,14 +159,19 @@ class SampleProxyCharm(SSHProxyCharm):
                 stdout,stderr = proxy.run(cmd)
                 cmd = "printf 'exten => "+extensionId+",1,Answer()' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                 cmd = "printf 'exten => "+extensionId+",2,Dial(SIP/"+extensionId+",60) ' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                 cmd = "printf 'exten => "+extensionId+",3,Playback(vm-nobodyavail) ' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                 cmd = "printf 'exten => "+extensionId+",4,VoiceMail("+extensionId+"@main) ' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                 cmd = "printf 'exten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf"
                 stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                                                                
 
                 event.set_results({"output":stdout})
