@@ -69,9 +69,12 @@ class SampleProxyCharm(SSHProxyCharm):
                 # cmd = "sudo sed -i 's\";radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf\"radiuscfg => /etc/radcli/radiusclient.conf\"g' /etc/asterisk/cdr.conf"
                 # stdout,stderr = proxy.run(cmd)
                 # cmd = "sudo sed -i 's\";radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf\"radiuscfg => /etc/radcli/radiusclient.conf\"g' /etc/asterisk/cel.conf"
-                # stdout,stderr = proxy.run(cmd)                
-                stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")                
+                # stdout,stderr = proxy.run(cmd)     
+                cmd = "echo -e '[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 ' | sudo tee -a /etc/asterisk/sip.conf"           
+                # stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")                
+                stdout,stderr = proxy.run(cmd)
                 event.set_results({"output":stdout})
+
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
         else:
@@ -86,7 +89,7 @@ class SampleProxyCharm(SSHProxyCharm):
                 account = event.params["accountId"]
                 accountId = str(account)
                 proxy = self.get_ssh_proxy()
-                stdout,stderr = proxy.run("echo -e \"["+accountId+"]\ntype=friend\nhost=dynamic\nsecret="+accountId+"\ncontext=internal \" | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo -e '["+accountId+"]\ntype=friend\nhost=dynamic\nsecret="+accountId+"\ncontext=internal ' | sudo tee -a /etc/asterisk/sip.conf")
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
@@ -100,7 +103,7 @@ class SampleProxyCharm(SSHProxyCharm):
             try:
                 extension = event.params["extensionId"]                
                 extensionsId = str(extension)
-                cmd = "echo -e \" [internal]\nexten => "+extensionId+",1,Answer()\nexten => "+extensionId+",2,Dial(SIP/"+extensionId+",60)\nexten => "+extensionId+",3,Playback(vm-nobodyavail)\nexten => "+extensionId+",4,VoiceMail("+extensionId+"@main)\nexten => "+extensionId+",5,Hangup() \" | sudo tee -a /etc/asterisk/extensions.conf"
+                cmd = "echo -e ' [internal]\nexten => "+extensionId+",1,Answer()\nexten => "+extensionId+",2,Dial(SIP/"+extensionId+",60)\nexten => "+extensionId+",3,Playback(vm-nobodyavail)\nexten => "+extensionId+",4,VoiceMail("+extensionId+"@main)\nexten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf"
                 proxy = self.get_ssh_proxy()
                 stdout,stderr = proxy.run(cmd)
                 event.set_results({"output":stdout})
