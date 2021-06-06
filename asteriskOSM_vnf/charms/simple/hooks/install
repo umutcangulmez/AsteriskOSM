@@ -76,44 +76,44 @@ class SampleProxyCharm(SSHProxyCharm):
                 proxy = self.get_ssh_proxy()
 
                 # normal thing to do but due to time limit couldn't check if it worked :(
-                with open("sip.conf") as fp: 
-                    while True:
-                        line = fp.readline()
-                        if not line:
-                            break
-                        cmd = "printf '+line+' | sudo tee -a /etc/asterisk/sip.conf "
-                        stdout,stderr = proxy.run(cmd)
-                        cmd = "echo | sudo tee -a /etc/asterisk/sip.conf "
-                        stdout,stderr = proxy.run(cmd)
+                # with open("sip.conf") as fp: 
+                #     while True:
+                #         line = fp.readline()
+                #         if not line:
+                #             break
+                #         cmd = "printf '+line+' | sudo tee -a /etc/asterisk/sip.conf "
+                #         stdout,stderr = proxy.run(cmd)
+                #         cmd = "echo | sudo tee -a /etc/asterisk/sip.conf "
+                #         stdout,stderr = proxy.run(cmd)
 
-                # stdout,stderr = proxy.run("printf '[general]' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'context=internal' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'allowguest=no' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'allowoverlap=no'| sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'bindport=5060 ' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'bindaddr=0.0.0.0' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'srvlookup=no' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'disallow=all' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'allow=ulaw'| sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'alwaysauthreject=yes ' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'canreinvite=no' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'nat=yes' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'session-timers=refuse' | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("printf 'localnet=192.168.0.0/255.255.255.0'| sudo tee -a /etc/asterisk/sip.conf")
-                # stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf '[general]' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'context=internal' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'allowguest=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'allowoverlap=no'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'bindport=5060 ' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'bindaddr=0.0.0.0' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'srvlookup=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'disallow=all' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'allow=ulaw'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'alwaysauthreject=yes ' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'canreinvite=no' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'nat=yes' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'session-timers=refuse' | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("printf 'localnet=192.168.0.0/255.255.255.0'| sudo tee -a /etc/asterisk/sip.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/sip.conf")
                 
 
                 event.set_results({"output":stdout})
