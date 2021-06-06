@@ -1,4 +1,5 @@
 # Actions to be implemented in src/charm.py
+
 # configure-remote:
 #   description: "Configures the remote server"
 #   params:
@@ -8,14 +9,16 @@
 #       default: ""
 #   required:
 #     - destination_ip
+# start-service:
+#   description: "Starts the service of the VNF"
 
-install-asterisk:
+installasterisk:
   description: "install asterisk"
 
-config-sip:
+configsip:
   description: "config sip"
 
-create-sip-account:
+createsipaccount:
   description: "create sip account"
   params:
     accountId:
@@ -25,25 +28,25 @@ create-sip-account:
   required:
     - accountId
 
-add-extention:
-  description: "add_extention"
+addextension:
+  description: "addextension"
   params:
-    extentionId:
-      description: "extentionId"
+    extensionId:
+      description: "extensionId"
       type: string
       default: "7001"
   required:
-    - extentionId
+    - extensionId
 
-restart-asterisk:
+restartasterisk:
   description: "restart_asterisk"
 
   
-connect-asterisk:
+connectasterisk:
   description: "connect_asterisk"
 
   
-connect-running-asterisk:
+connectrunningasterisk:
   description: "connect_running_asterisk"
 
 start:

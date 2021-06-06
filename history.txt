@@ -1,0 +1,1000 @@
+   36  ls
+   37  vi osm-k8s-cluster-create.sh
+   38  vi osm.rc 
+   39  ls
+   40  ls /root
+   41  ls
+   42  vi osm-vim-create.sh
+   43  ls
+   44  cd /cert
+   45  cd /certs
+   46  vi osm-vim-create.sh
+   47  ls
+   48  vi osm-vim-create.sh
+   49  ls
+   50  grep -nr "canonical.pem" .
+   51  vi openstack.rc 
+   52  kubectl get pods -n osm
+   53  vi openstack.rc 
+   54  ls
+   55  vi osm-vim-create.sh
+   56  openstack network list
+   57  juju status 
+   58  cd
+   59  juju status 
+   60  ls -la
+   61  exit
+   62  juju status
+   63  cd
+   64  ls -la
+   65  cd .local/share/juju/
+   66  ls -la
+   67  cd juju
+   68  ls -la
+   69  cd ..
+   70  rm -rf juju
+   71  exit
+   72  ls -ls .local/share/juju/
+   73  rm -rf .local/share/juju/
+   74  ls -ls .local/share/juju/
+   75  juju status
+   76  exit
+   77  ls
+   78  more openstack.rc 
+   79  openstack image list
+   80  cat osm.rc
+   81  osm vim-list
+   82  cat kube.yaml 
+   83  kubectl get pods -A
+   84  ls
+   85  ./osm-k8s-cluster-list.sh 
+   86  osm k8scluster-list
+   87  more osm-vim-create.sh 
+   88  exit
+   89  df
+   90  ls
+   91  ll
+   92  ping 172.21.247.1
+   93  ls
+   94  more osm.rc 
+   95  ls
+   96  ls -la
+   97  more openstack.rc 
+   98  ls
+   99  pwd
+  100  cd ..
+  101  ls
+  102  mkdir ofe
+  103  ls
+  104  cd osm_hackfest_
+  105  cd osm_hackfest_1
+  106  ls
+  107  mkdir ofe
+  108  ls
+  109  rm -rf ofe/
+  110  ls
+  111  ls -la
+  112  mkdir .ofe
+  113  ls
+  114  ls -l
+  115  ls -la
+  116  cd .ofe/
+  117  ls
+  118  ll
+  119  ls
+  120  ll
+  121  ls
+  122  ll
+  123  chmod 755 IxLoad_Web_9.10_KVM.sh 
+  124  ./IxLoad_Web_9.10_KVM.sh 
+  125  more IxLoad_Web_9.10_KVM.sh 
+  126  ls
+  127  more IxLoad_Web_9.10_KVM.sh 
+  128  ls
+  129  cd 9.10.115.162_ixload/
+  130  ls
+  131  cd ..
+  132  ls
+  133  ./IxLoad_Web_9.10_KVM.sh 
+  134  sudo ./IxLoad_Web_9.10_KVM.sh 
+  135  ls
+  136  more IxLoad_Web_9.10_KVM.sh 
+  137  ls
+  138  cd ..
+  139  ls
+  140  rm -rf .ofe/
+  141  ls
+  142  exit
+  143  pwd
+  144  ls
+  145  cd osm-packages/
+  146  ld
+  147  ls
+  148  mkdir .ofe
+  149  ls
+  150  ll
+  151  cd .ofe/
+  152  ls
+  153  df
+  154  ls
+  155  vi openrc
+  156  source openrc 
+  157  openstack list networks
+  158  openstack network list
+  159  ls
+  160  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  161  openstack image create --disk-format qcow2 --container-format bare --private --file ./IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  162  ls
+  163  ls -l
+  164  pwd
+  165  openstack image create --disk-format qcow2 --container-format bare --private --file /home/osm_hackfest_1/.ofe/IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  166  ls
+  167  ls -l
+  168  openstack image create --disk-format qcow2 --container-format bare --private --file /home/osm_hackfest_1/.ofe/IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  169  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  170  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KV.qcow2 IxLoad_Web_9.10
+  171  ls
+  172  ls -
+  173  ls -l
+  174  chmod 777 IxLoad_Web_9.10_KVM.qcow2 
+  175  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  176  ls
+  177  ll
+  178  chmod 555 IxLoad_Web_9.10_KVM.qcow2 
+  179  ls
+  180  ls -l
+  181  chmod 444 IxLoad_Web_9.10_KVM.qcow2 
+  182  ll
+  183  ls -l
+  184  chmod 666 IxLoad_Web_9.10_KVM.qcow2 
+  185  ll
+  186  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  187  source openrc 
+  188  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  189  vi openrc 
+  190  source openrc 
+  191  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  192  source ./openrc 
+  193  openstack image create --disk-format qcow2 --container-format bare --private --file IxLoad_Web_9.10_KVM.qcow2 IxLoad_Web_9.10
+  194  openstack image list
+  195  openstack network list
+  196  vi openrc 
+  197  ls
+  198  . openrc 
+  199  openstack network list
+  200  exit
+  201  ls
+  202  cd .ofe/
+  203  . openrc 
+  204  openstack network list
+  205  vi openrc 
+  206  . openrc 
+  207  openstack network list
+  208  ls
+  209  cd ..
+  210  ls
+  211  rm -rf .ofe
+  212  ls
+  213  df
+  214  ls
+  215  exit
+  216  clear
+  217  osm
+  218  pwd
+  219  ls
+  220  ls osm-packages/
+  221  cd osm-packages/
+  222  cd openldap_ns/
+  223  cd ..
+  224  pwd
+  225  osm nfpkg-create openldap_knf
+  226  osm nspkg-create openldap_ns
+  227  ls
+  228  osm vim-create --name VIM_Hackfest --tenant osm_hackfest_1 --user osm_hackfest_1 --password osm_hackfest_1 --auth_url https://172.21.18.2 --account_type openstack
+  229  osm vim-create --name VIM_Hackfest --tenant osm_hackfest_1 --user osm_hackfest_1 --password osm_hackfest_1 --auth_url https://ui.172.21.1.9.nip.io/ --account_type openstack
+  230  osm vim-create --name VIM_Hackfest_1 --tenant osm_hackfest_1 --user osm_hackfest_1 --password osm_hackfest_1 --auth_url https://ui.172.21.1.9.nip.io/ --account_type openstack
+  231  osm k8scluster-list
+  232  osm k8scluster-show cluster
+  233  grep -FR kubeconfig.yaml *
+  234  grep -FR "kubeconfig.yaml" *.*
+  235  grep -FR "kubeconfig.yaml" *
+  236  find . name "kubeconfig.yaml" *
+  237  find . name "kubeconfig.yaml"
+  238  clear
+  239  ls
+  240  osm k8scluster-list
+  241  pwd
+  242  ls ../
+  243  cd ..
+  244  ls
+  245  pwd
+  246  kubectl get all -n osm
+  247  pwd
+  248  cd ..
+  249  ls
+  250  cd osm_hackfest_1
+  251  ls
+  252  pwd
+  253  du -sh *
+  254  ls
+  255  pwd
+  256  mkdir Mahes
+  257  mv -f Mahes/ Mahesh
+  258  cd Mahesh/
+  259  wget https://osm-download.etsi.org/ftp/osm-10.0-ten/install-osm.sh
+  260  wget https://osm-download.etsi.org/ftp/osm-10.0-ten/install_osm.sh
+  261  chmod +x install_osm.sh 
+  262  ./install_osm.sh 
+  263  cd ..
+  264  ls
+  265  rm -rf Mahesh/
+  266  kubectl get all -n osm
+  267  kubectl get all -n monitoring
+  268  docker stack ps osm |grep -i running
+  269  clear
+  270  pwd
+  271  ipconfig
+  272  ifconfig
+  273  df
+  274  mkdir .ofe
+  275  cd .ofe/
+  276  ls
+  277  vi openrc
+  278  ls
+  279  . ./ openrc 
+  280  ls
+  281  ls -l
+  282  chmod 755 openrc 
+  283  ./openrc 
+  284  openstack network list
+  285  source ./openrc 
+  286  openstack network list
+  287  openstack server list
+  288  cd .ofe/
+  289  source openrc 
+  290  openstack network list
+  291  rm-rf .ofe/
+  292  rm -rf .ofe/
+  293  ls
+  294  ll
+  295  exit
+  296  clear
+  297  history
+  298  kubectl get all -n osm
+  299  sudo kubectl get all -n osm
+  300  ll
+  301  cat openstack.rc 
+  302  cat osm.rc
+  303  ll
+  304  history | grep kubectl
+  305  kubectl get pods -n osm
+  306  kubectl get pods 
+  307  kubectl get ns
+  308  kubectl get ns | grep Asterisk
+  309  kubectl get ns | 
+  310  kubectl get ns | grep free
+  311  kubectl get ns | grep -i free
+  312  kubectl get ns | grep -i b26b5d59
+  313  kubectl get ns | grep  b26b5d59
+  314  osmns -list
+  315  osm ns-list
+  316  osm ns-op-list b26b5d59-2030-457e-9494-db20e12decca
+  317  osm ns-op-show 560c3aae-e440-4f9f-8f99-6bb9bd41dcf4
+  318  kubectl get ns | grep  c33cb9d9a6dc439d8a61466defb78495
+  319  kubectl get ns | grep  1622469501.0555334
+  320  ssh osm_hackfest_1@172.21.19.93
+  321  ssh ubuntu@172.21.19.93
+  322  ls
+  323  ssh ubuntu@192.168.56.203
+  324  ssh ubuntu@192.168.56.147
+  325  ssh ubuntu@172.21.19.242
+  326  ls
+  327  history 
+  328  mkdir asterisk
+  329  cd asterisk/
+  330  l
+  331  cd ..
+  332  l
+  333  cd osm-packages/
+  334  l
+  335  cd c
+  336  cd charm-packages/
+  337  l
+  338  cd ha_proxy_charm_ns/
+  339  l
+  340  vim checksums.txt 
+  341  vim ha_proxy_charm_nsd.yaml 
+  342  ssh ubuntu@172.21.19.93
+  343  vim ha_proxy_charm_nsd.yaml 
+  344  cd ..
+  345  l
+  346  cd ha_proxy_charm_vnf/
+  347  l
+  348  vim ha_proxy_charm_vnfd.yaml 
+  349  cd ..
+  350  l
+  351  cd ha_proxy_charm_ns/icons/
+  352  cd ..
+  353  l
+  354  vim ha_proxy_charm_nsd.yaml 
+  355  cd ..
+  356  cd ha_proxy_charm_vnf/
+  357  l
+  358  vim ha_proxy_charm_vnfd.yaml 
+  359  l
+  360  cd cloud_init/
+  361  l
+  362  vim cloud-config.txt 
+  363  l
+  364  cd ..
+  365  l
+  366  cd charms/
+  367  l
+  368  cd simple/
+  369  l
+  370  cd ..
+  371  l
+  372  cd icons/
+  373  l
+  374  cd ..
+  375  l
+  376  vim ha_proxy_charm_vnfd.yaml 
+  377  cd charms/
+  378  l
+  379  cd simple/
+  380  l
+  381  vim config.yaml 
+  382  vim metadata.yaml 
+  383  cd ..
+  384  cd .. 
+  385  l
+  386  vim ha_proxy_charm_vnfd.yaml 
+  387  cd charms/simple/
+  388  cd src/
+  389  l
+  390  vim charm.py 
+  391  l
+  392  cd ..
+  393  l
+  394  cd ..
+  395  l
+  396  cd ..
+  397  l
+  398  cd ..
+  399  l
+  400  cd vnf_relations_vnf/
+  401  l
+  402  cd charms/
+  403  l
+  404  cd simple_
+  405  cd simple_provides/
+  406  k
+  407  l
+  408  cd src/
+  409  l
+  410  vim charm.py 
+  411  cd ..
+  412  l
+  413  ssh ubuntu@172.21.19.93
+  414  clear
+  415  ls
+  416  pwd
+  417  ls asterisk/
+  418  ls snap/
+  419  ls osm-packages/
+  420  ls osm-packages/mahesh/
+  421  ls
+  422  mv -f osm-packages/mahesh/ .
+  423  ls
+  424  cd mahesh/
+  425  ls
+  426  mkdir quick_start_4
+  427  cd quick_start_4/
+  428  sudo snap install charmcraft
+  429  pwd
+  430  cd ..
+  431  ls
+  432  ls snap/
+  433  ls
+  434  cd snap/
+  435  ls
+  436  ls juju/
+  437  cd juju/
+  438  ls
+  439  ls common/
+  440  ls 115845
+  441  ls 15845
+  442  ls -lrt
+  443  cd ..
+  444  ls
+  445  ls kubectl/
+  446  ls
+  447  cd kubectl/
+  448  ls
+  449  ls -lrt
+  450  ls common/
+  451  cd ..
+  452  ls
+  453  cd osm-packages/
+  454  ls
+  455  clear
+  456  pwd
+  457  history
+  458  osm ns-list
+  459  osm vim-list
+  460  ssh ubuntu@192.168.56.147
+  461  ssh ubuntu@172.21.19.242
+  462  l
+  463  history
+  464  l
+  465  ssh ubuntu@172.21.19.93
+  466  l
+  467  cd asterisk/
+  468  l
+  469  git clone https://github.com/umutcangulmez/AsteriskOSM
+  470  l
+  471  cd AsteriskOSM/
+  472  l
+  473  history
+  474  osm ns-create --ns_name asteriskOSM_ns --nsd_name asteriskOSM_ns --vim_account osm_hackfest_1
+  475  cd asteriskOSM_ns
+  476  osm ns-create --ns_name asteriskOSM_ns --nsd_name asteriskOSM_ns --vim_account osm_hackfest_1
+  477  ls
+  478  cd ..
+  479  osm ns-create --ns_name asteriskOSM_ns --nsd_name asteriskOSM_ns --vim_account osm_hackfest_1
+  480  osm vnf-create --vnf_name asteriskOSM_vnf --vnfd_name asteriskOSM_vnf --vim_account osm_hackfest_1
+  481  osm vnfpkg-create asteriskOSM_vnf/
+  482  osm nspkg-create asteriskOSM_vnf/
+  483  l
+  484  osm vnfpkg-create asteriskOSM_vnf/
+  485  l
+  486  rm asteriskOSM_vnf.tar.gz 
+  487  osm vnfpkg-create asteriskOSM_vnf/
+  488  l
+  489  osm nfpkg-create ha_proxy_charm_vnf
+  490  osm nfpkg-create asteriskOSM_vnf
+  491  osm nspkg-create ha_proxy_charm_ns
+  492  osm nspkg-create asteriskOSM_ns
+  493  l
+  494  vim asteriskOSM_vnf/asteriskOSM_vnfd.yaml 
+  495  rm asteriskOSM_ns.tar.gz 
+  496  rm asteriskOSM_vnf.tar.gz 
+  497  osm nfpkg-create asteriskOSM_vnf
+  498  osm nspkg-create asteriskOSM_ns
+  499  l
+  500  rm *.tar.gz
+  501  l
+  502  vim asteriskOSM_vnf/
+  503  cd ..
+  504  osm nfpkg-create asteriskOSM_vnf
+  505  l
+  506  cd AsteriskOSM/
+  507  osm nfpkg-create asteriskOSM_vnf
+  508  osm nspkg-create asteriskOSM_ns
+  509  osm ns-create --ns_name asteriskOSM_ns --nsd_name asteriskOSM_ns --vim_account osm_hackfest_1
+  510  l
+  511  history
+  512  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  513  ls
+  514  cd asteriskOSM_vnf/
+  515  l
+  516  cd c
+  517  cd charms/
+  518  l
+  519  cd install/
+  520  l
+  521  cd lib/
+  522  l
+  523  vim charms 
+  524  sudo vim charms 
+  525  vim charms 
+  526  l
+  527  cd ..
+  528  l
+  529  cd ..
+  530  l
+  531  cd ..
+  532  l
+  533  cd ..
+  534  l
+  535  cd ..
+  536  l
+  537  cd ..
+  538  cd osm-packages/
+  539  l
+  540  cd charm-packages/
+  541  l
+  542  cd ha_proxy_charm_vnf/
+  543  l
+  544  vim ha_proxy_charm_vnfd.yaml 
+  545  cd ..
+  546  l
+  547  cd ..
+  548  l
+  549  cd ..
+  550  l
+  551  cd asterisk/AsteriskOSM/
+  552  l
+  553  cd asteriskOSM_vnf/
+  554  l
+  555  vim asteriskOSM_vnfd.yaml 
+  556  cd ..
+  557  history
+  558  osm nfpkg-create asteriskOSM_vnf
+  559  osm nspkg-create asteriskOSM_ns
+  560  l
+  561  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  562  l
+  563  cd asteriskOSM_vnf/
+  564  l
+  565  cd charms/
+  566  l
+  567  cd install/
+  568  l
+  569  cd lib/
+  570  l
+  571  cd ..
+  572  l
+  573  cd ..
+  574  l
+  575  cd ..
+  576  l
+  577  cd ..
+  578  l
+  579  vim 
+  580  vim asteriskOSM_vnf
+  581  l
+  582  cd asteriskOSM_vnf/
+  583  l
+  584  cd charms/
+  585  l
+  586  cd install/
+  587  l
+  588  cd lib/
+  589  l
+  590  mv charms charms.backup
+  591  l
+  592  cp -r ~/osm-packages/charm-packages/ha_proxy_charm_vnf/charms/simple/lib/charms/ .
+  593  l
+  594  cd ..
+  595  l
+  596  cd ..
+  597  cd AsteriskOSM/
+  598  l
+  599  rm asteriskOSM_ns.tar.gz 
+  600  l
+  601  rm asteriskOSM_vnf.tar.gz 
+  602  l
+  603  osm nfpkg-create asteriskOSM_vnf
+  604  osm nspkg-create asteriskOSM_ns
+  605  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  606  l
+  607  cp asteriskOSM_vnf.tar.gz ../AsteriskOSM/../
+  608  cd ..
+  609  l
+  610  tar -xvf asteriskOSM_vnf.tar.gz 
+  611  l
+  612  cd asteriskOSM_vnf/charms/install/lib/charms/
+  613  l
+  614  cd ..
+  615  l
+  616  cd ../../../
+  617  cd ..
+  618  l
+  619  rm -rf asteriskOSM_vnf/
+  620  l
+  621  rm asteriskOSM_vnf.tar.gz 
+  622  cd AsteriskOSM/
+  623  l
+  624  rm *.tar.gz
+  625  l
+  626  cd asteriskOSM_vnf/
+  627  l
+  628  cd charms/
+  629  l
+  630  cd install/
+  631  cd lib/
+  632  l
+  633  rm charms.backup 
+  634  cd ..
+  635  l
+  636  cd mod/
+  637  l
+  638  cd operator/
+  639  l
+  640  cd ..
+  641  l
+  642  cd charms.osm/
+  643  l
+  644  cd ..
+  645  l
+  646  cd ..
+  647  l
+  648  cd lib/
+  649  l
+  650  cd charms/
+  651  l
+  652  cp ~/osm-packages/charm-packages/ha_proxy_charm_vnf/charms/simple/lib/charms/osm/* .
+  653  l
+  654  mkdir osm
+  655  l
+  656  rm osm 
+  657  l
+  658  mkdir osm
+  659  l
+  660  mv libansible.py ns.py proxy_cluster.py sshproxy.py osm/
+  661  l
+  662  cd osm/
+  663  l
+  664  cd ..
+  665  l
+  666  cd ..
+  667  l
+  668  cd ..
+  669  l
+  670  cd ..
+  671  osm nfpkg-create asteriskOSM_vnf
+  672  l
+  673  rm asteriskOSM_vnf.tar.gz 
+  674  osm nfpkg-create asteriskOSM_vnf
+  675  osm nspkg-create asteriskOSM_ns
+  676  l
+  677  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  678  cd asteriskOSM_vnf/charms/install/lib/
+  679  l
+  680  rm ops 
+  681  l
+  682  cp -r ~/osm-packages/charm-packages/ha_proxy_charm_vnf/charms/simple/lib/ops/ .
+  683  l
+  684  cd ops/
+  685  l
+  686  cd ..
+  687  l
+  688  cd ..
+  689  l
+  690  cd ..
+  691  l
+  692  cd ..
+  693  l
+  694  rm *.tar.gz
+  695  l
+  696  osm nfpkg-create asteriskOSM_vnf
+  697  l
+  698  rm asteriskOSM_vnf.tar.gz 
+  699  osm nfpkg-create asteriskOSM_vnf
+  700  osm nspkg-create asteriskOSM_ns
+  701  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  702  git status
+  703  git add -A 
+  704  git commit -m 'error on function names'
+  705  l
+  706  git status
+  707  git config --global user.email "you@domain.com"
+  708  git commit -m 'error on function names'
+  709  git config --global user.name "github_username"
+  710  git commit -m 'error on function names'
+  711  l
+  712  git push 
+  713  l
+  714  cd asteriskOSM_vnf/
+  715  l
+  716  cd charms/
+  717  l
+  718  cd install/src/
+  719  l
+  720  vim charm.py 
+  721  cd ..
+  722  l
+  723  vim actions.yaml 
+  724  l
+  725  vim config.yaml 
+  726  l
+  727  cd ..
+  728  l
+  729  cd ..
+  730  l
+  731  vim asteriskOSM_vnfd.yaml 
+  732  cd ..
+  733  l
+  734  rm *.gz
+  735  l
+  736  osm nfpkg-create asteriskOSM_vnf
+  737  osm nspkg-create asteriskOSM_ns
+  738  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  739  l
+  740  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  741  l
+  742  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  743  cd asterisk/AsteriskOSM/
+  744  l
+  745  git status
+  746  git add -A 
+  747  git commit -m 'bad name error'
+  748  git push
+  749  l
+  750  git pull
+  751  l
+  752  rm *.gz
+  753  l
+  754  osm nfpkg-create asteriskOSM_vnf
+  755  rm asteriskOSM_vnf.tar.gz 
+  756  osm nfpkg-create asteriskOSM_vnf
+  757  osm nspkg-create asteriskOSM_ns
+  758  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  759  git pull
+  760  osm nfpkg-create asteriskOSM_vnf
+  761  osm nspkg-create asteriskOSM_ns
+  762  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  763  git pull
+  764  osm nfpkg-create asteriskOSM_vnf
+  765  osm nspkg-create asteriskOSM_ns
+  766  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  767  osm ns-list
+  768  osm ns-op-list 28b3661d-eff4-41ac-9433-51051d37ad55
+  769  osm ns-op-show 45f9f373-46ad-4920-862e-7c936d2f997f
+  770  osm ns-list
+  771  osm ns-op-list 28b3661d-eff4-41ac-9433-51051d37ad55
+  772  juju status
+  773  osm ns-op-list 28b3661d-eff4-41ac-9433-51051d37ad55
+  774  juju status
+  775  osm ns-create --ns_name trial --nsd_name ha_proxy_charm-ns --vim_account osm_hackfest_1
+  776  juju status
+  777  osm ns-create --ns_name trial --nsd_name ha_proxy_charm-ns --vim_account osm_hackfest_1
+  778  juju status
+  779  l
+  780  cp -rf asteriskOSM_vnf/charms/install/hooks/* ../ 
+  781  l
+  782  cd ..
+  783  l
+  784  cd AsteriskOSM/
+  785  l
+  786  git pull
+  787  l
+  788  osm nfpkg-create asteriskOSM_vnf
+  789  osm nspkg-create asteriskOSM_ns
+  790  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  791  osm ns-list
+  792  osm ns-op-list b1f99d75-dd02-44b1-b229-9d717e51bd8a
+  793  osm ns-op-show 6af789f2-5cfb-456a-9075-019520ede8cf
+  794  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  795  git pull
+  796  rm asteriskOSM_ns.tar.gz 
+  797  rm asteriskOSM_vnf.tar.gz 
+  798  l
+  799  osm nfpkg-create asteriskOSM_vnf
+  800  rm *.gz
+  801  osm nfpkg-create asteriskOSM_vnf
+  802  osm nspkg-create asteriskOSM_ns
+  803  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  804  osm ns-list
+  805  juju status --model 3a82f531-da0f-44df-a1f9-2da8aeb92e9f 
+  806  l
+  807  cd asteriskOSM_vnf/
+  808  l
+  809  cd charms/
+  810  l
+  811  git pull 
+  812  l
+  813  cd ..
+  814  l
+  815  cd c
+  816  l
+  817  cd ..
+  818  l
+  819  rm *.gz
+  820  l
+  821  osm nfpkg-create asteriskOSM_vnf
+  822  osm nspkg-create asteriskOSM_ns
+  823  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  824  osm ns-list
+  825  juju status --model ec1e1eef-5e53-4e3e-a142-e855bb1f4579
+  826  l
+  827  cd asteriskOSM_vnf/
+  828  l
+  829  cd charms/
+  830  l
+  831  cd simple/
+  832  l
+  833  cd hooks/
+  834  l
+  835  vim install 
+  836  juju debug-log --model ec1e1eef-5e53-4e3e-a142-e855bb1f4579
+  837  l
+  838  cd ..
+  839  l
+  840  cd ..
+  841  l
+  842  cd ..
+  843  l
+  844  rm asteriskOSM_ns.tar.gz 
+  845  rm *.gz
+  846  l
+  847  osm nfpkg-create asteriskOSM_vnf
+  848  rm *.gz
+  849  git pull 
+  850  osm nfpkg-create asteriskOSM_vnf
+  851  rm *.gz
+  852  osm nfpkg-create asteriskOSM_vnf
+  853  osm nspkg-create asteriskOSM_ns
+  854  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  855  osm ns-list
+  856  juju debug-log --model f8a6c576-b97c-4afd-8192-4efae0fb141b
+  857  osm ns-list
+  858  juju status --model f8a6c576-b97c-4afd-8192-4efae0fb141b
+  859  juju debug-log --model f8a6c576-b97c-4afd-8192-4efae0fb141b
+  860  l
+  861  cd asteriskOSM_vnf/
+  862  l
+  863  cd charms/
+  864  l
+  865  cd simple/
+  866  l
+  867  cd src/
+  868  l
+  869  vim charm.py 
+  870  l
+  871  git pull
+  872  cd ..
+  873  l
+  874  cd ..
+  875  l
+  876  cd ..
+  877  l
+  878  cd ..
+  879  l
+  880  rm *.gz
+  881  l
+  882  osm nfpkg-create asteriskOSM_vnf
+  883  osm nspkg-create asteriskOSM_ns
+  884  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  885  osm ns-list
+  886  juju debug-log --model 7ec43676-4ce2-4dda-af8f-7a662e8d604e
+  887  juju status --model 7ec43676-4ce2-4dda-af8f-7a662e8d604e
+  888  juju debug-log --model 7ec43676-4ce2-4dda-af8f-7a662e8d604e
+  889  git pull
+  890  rm *.gz
+  891  osm nfpkg-create asteriskOSM_vnf
+  892  osm nspkg-create asteriskOSM_ns
+  893  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  894  osm ns-list
+  895  git status
+  896  git pull 
+  897  l
+  898  rm *.gz
+  899  l
+  900  osm nfpkg-create asteriskOSM_vnf
+  901  osm nspkg-create asteriskOSM_ns
+  902  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  903  osm ns-list
+  904  juju debug-log --model 0dccfd83-76ba-4eb4-b9ec-29a1b2c45168
+  905  juju status --model 0dccfd83-76ba-4eb4-b9ec-29a1b2c45168
+  906  juju debug-log --model 0dccfd83-76ba-4eb4-b9ec-29a1b2c45168
+  907  juju status --model 0dccfd83-76ba-4eb4-b9ec-29a1b2c45168
+  908  juju debug-log --model 0dccfd83-76ba-4eb4-b9ec-29a1b2c45168
+  909  git pull 
+  910  l
+  911  rm *.gz
+  912  l
+  913  osm nfpkg-create asteriskOSM_vnf
+  914  osm nspkg-create asteriskOSM_ns
+  915  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  916  osm ns-list
+  917  juju status --model e3ccedae-6bcc-4217-8e43-c419d3afd7d2
+  918  juju debug-log --model e3ccedae-6bcc-4217-8e43-c419d3afd7d2
+  919  osm ns-list
+  920  l
+  921  rm *.gz
+  922  osm nfpkg-create asteriskOSM_vnf
+  923  osm nspkg-create asteriskOSM_ns
+  924  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  925  osm nfpkg-create asteriskOSM_vnf
+  926  osm nspkg-create asteriskOSM_ns
+  927  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  928  l
+  929  cd asterisk/
+  930  l
+  931  cd AsteriskOSM/
+  932  l
+  933  osm nfpkg-create asteriskOSM_vnf
+  934  osm nspkg-create asteriskOSM_ns
+  935  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  936  juju show-action-status --model 2ae088d0-3518-470d-bb81-5ac14df9c23a
+  937  juju show-action-output --model 2ae088d0-3518-470d-bb81-5ac14df9c23a 18
+  938  python
+  939  osm nfpkg-create asteriskOSM_vnf
+  940  osm nspkg-create asteriskOSM_ns
+  941  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  942  juju show-action-status --model b14bb589-e490-4b33-91bd-89661c5ea4c8 
+  943  ssh ubuntu@172.21.19.123
+  944  ssh ubuntu@172.21.19.136
+  945  juju show-action-status --model b14bb589-e490-4b33-91bd-89661c5ea4c8 
+  946  juju show-action-output --model b14bb589-e490-4b33-91bd-89661c5ea4c8  22
+  947  ssh ubuntu@172.21.19.123
+  948  ssh ubuntu@192.168.121.224
+  949  ssh ubuntu@172.21.19.123
+  950  ssh ubuntu@172.21.19.18
+  951  l
+  952  cd asterisk/
+  953  cd AsteriskOSM/
+  954  l
+  955  osm nfpkg-create asteriskOSM_vnf
+  956  osm nspkg-create asteriskOSM_ns
+  957  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  958  osm ns-list
+  959  juju show-action-status
+  960  juju show-action-status --model 8dbada62-e73d-4aaf-b83f-8d56c1881836
+  961  juju show-action-output --model 8dbada62-e73d-4aaf-b83f-8d56c1881836
+  962  juju show-action-status --model 8dbada62-e73d-4aaf-b83f-8d56c1881836
+  963  osm nfpkg-create asteriskOSM_vnf
+  964  osm nspkg-create asteriskOSM_ns
+  965  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  966  juju show-action-status --model d4ae642e-2693-4e02-aa1b-901b1bd2fe21
+  967  juju show-action-output --model d4ae642e-2693-4e02-aa1b-901b1bd2fe21 14
+  968  osm nfpkg-create asteriskOSM_vnf
+  969  osm nspkg-create asteriskOSM_ns
+  970  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  971  juju show-action-status --model 468f2cb4-87c2-4bf3-8ad7-c955d69bdc39
+  972  juju show-action-status --model 468f2cb4-87c2-4bf3-8ad7-c955d69bdc39 14
+  973  juju show-action-output --model 468f2cb4-87c2-4bf3-8ad7-c955d69bdc39 14
+  974  sshpass -p osm4u ssh -i /root/.ssh/id_sshproxy -o StrictHostKeyChecking=no -q ubuntu@172.21.19.50 sudo apt-get install asterisk -y
+  975  ssh ubuntu@172.21.19.50
+  976  osm nfpkg-create asteriskOSM_vnf
+  977  osm nspkg-create asteriskOSM_ns
+  978  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  979  juju show-action-status --model 468f2cb4-87c2-4bf3-8ad7-c955d69bdc39 
+  980  juju show-action-status --model 2d4c49b5-85d1-4f55-aeba-3a718b2cd2f0
+  981  juju show-action-output --model 2d4c49b5-85d1-4f55-aeba-3a718b2cd2f0 20
+  982  osm nfpkg-create asteriskOSM_vnf
+  983  osm nspkg-create asteriskOSM_ns
+  984  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+  985  l
+  986  git status
+  987  git add -A 
+  988  git commit -m 'instantiate successfully, sip config didnt work'
+  989  git push
+  990  juju show-action-status --model 785b5337-1647-4684-8635-e10d8df34069
+  991  ssh ubuntu@172.21.19.97
+  992  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 20
+  993  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 21
+  994  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 22
+  995  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 23
+  996  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 24
+  997  ssh ubuntu@172.21.19.97
+  998  juju show-action-status --model 785b5337-1647-4684-8635-e10d8df34069
+  999  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 28
+ 1000  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 30
+ 1001  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 26
+ 1002  juju show-action-status --model 785b5337-1647-4684-8635-e10d8df34069
+ 1003  ssh ubuntu@172.21.19.97
+ 1004  l
+ 1005  cd asterisk/
+ 1006  l
+ 1007  cd AsteriskOSM/
+ 1008  l
+ 1009  osm nfpkg-create asteriskOSM_vnf
+ 1010  osm nspkg-create asteriskOSM_ns
+ 1011  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+ 1012  juju show-action-status --model d19cb966-25a9-445a-8035-e8030812db9a
+ 1013  juju show-action-output --model 785b5337-1647-4684-8635-e10d8df34069 16
+ 1014  osm nfpkg-create asteriskOSM_vnf
+ 1015  osm nspkg-create asteriskOSM_ns
+ 1016  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+ 1017  juju show-action-status --model 4a4ae481-ed9d-48d3-8608-59405cf2d02b
+ 1018  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+ 1019  juju show-action-status --model 4a4ae481-ed9d-48d3-8608-59405cf2d02b
+ 1020  juju show-action-output --model 4a4ae481-ed9d-48d3-8608-59405cf2d02b 16
+ 1021  osm nfpkg-create asteriskOSM_vnf
+ 1022  osm nspkg-create asteriskOSM_ns
+ 1023  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+ 1024  juju show-action-status --model 5fdb0b01-b532-4004-bc3f-1a66889e03ce
+ 1025  osm ns-create --ns_name asteriskOSM-ns --nsd_name asteriskOSM-ns --vim_account osm_hackfest_1
+ 1026  juju show-action-status --model 5fdb0b01-b532-4004-bc3f-1a66889e03ce
+ 1027  ssh ubuntu@172.21.19.118
+ 1028  ssh ubuntu@172.21.19.91
+ 1029  l
+ 1030  cd asterisk/
+ 1031  history
+ 1032  l
+ 1033  cd AsteriskOSM/
+ 1034  l
+ 1035  history >> history.txt
