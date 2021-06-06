@@ -5,6 +5,7 @@ sys.path.append("lib")
 
 from charms.osm.sshproxy import SSHProxyCharm
 from ops.main import main
+import subprocess
 
 #todo observerlar
 class SampleProxyCharm(SSHProxyCharm):
@@ -81,6 +82,9 @@ class SampleProxyCharm(SSHProxyCharm):
         try:
             proxy = self.get_ssh_proxy()
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
+            stdout,stderr = proxy.run("touch aa")
+            with open("aa", "a") as f:
+                f.write("Now the file has more content!")
             event.set_results({"output": stdout})
         except Exception as e:
             event.fail("Action failed {}. Stderr: {}".format(e, stderr))
