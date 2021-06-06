@@ -61,14 +61,7 @@ vnfd:
                 value: ubuntu
               - name: ssh-password
                 value: osm4u
-              seq : 1
-            # - name: configure-remote
-            #   parameter:
-            #   - name: dest-ip
-            #     value: 10.1.1.1
-            #   seq: 2
-            # - name: start-service
-            #   seq: 3              
+              seq : 1            
             - name: installasterisk
               execution-environment-ref: simple-ee            
               seq: 2

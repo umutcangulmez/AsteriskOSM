@@ -7,7 +7,6 @@ from charms.osm.sshproxy import SSHProxyCharm
 from ops.main import main
 import subprocess
 
-#todo observerlar
 class SampleProxyCharm(SSHProxyCharm):
     def __init__(self, framework, key):
         super().__init__(framework, key)
