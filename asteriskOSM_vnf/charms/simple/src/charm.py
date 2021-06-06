@@ -18,9 +18,7 @@ class SampleProxyCharm(SSHProxyCharm):
         self.framework.observe(self.on.start, self.on_start)
         # self.framework.observe(self.on.upgrade_charm, self.on_upgrade_charm)
 
-        # Listen to the touch action event
-        # self.framework.observe(self.on.configure_remote_action, self.configure_remote)
-        # self.framework.observe(self.on.start_service_action, self.start_service)
+
         self.framework.observe(self.on.installasterisk_action,self.installasterisk)
         self.framework.observe(self.on.configsip_action,self.configsip)
         self.framework.observe(self.on.createsipaccount_action,self.createsipaccount)
@@ -42,49 +40,16 @@ class SampleProxyCharm(SSHProxyCharm):
         """Called when the charm is being started"""
         super().on_start(event)
 
-    # def configure_remote(self, event):
-    #     """Configure remote action."""
-
-    #     if self.model.unit.is_leader():
-    #         stderr = None
-    #         try:
-    #             mgmt_ip = self.model.config["ssh-hostname"]
-    #             destination_ip = event.params["destination_ip"]
-    #             cmd = "vnfcli set license {} server {}".format(
-    #                 mgmt_ip,
-    #                 destination_ip
-    #             )
-    #             proxy = self.get_ssh_proxy()
-    #             stdout, stderr = proxy.run(cmd)
-    #             event.set_results({"output": stdout})
-    #         except Exception as e:
-    #             event.fail("Action failed {}. Stderr: {}".format(e, stderr))
-    #     else:
-    #         event.fail("Unit is not leader")
-
-    # def start_service(self, event):
-    #     """Start service action."""
-
-    #     if self.model.unit.is_leader():
-    #         stderr = None
-    #         try:
-    #             cmd = "sudo service vnfoper start"
-    #             proxy = self.get_ssh_proxy()
-    #             stdout, stderr = proxy.run(cmd)
-    #             event.set_results({"output": stdout})
-    #         except Exception as e:
-    #             event.fail("Action failed {}. Stderr: {}".format(e, stderr))
-    #     else:
-    #         event.fail("Unit is not leader")
 
     def installasterisk(self,event):
         stderr = None
         try:
             proxy = self.get_ssh_proxy()
-            stdout,stderr = proxy.run("sudo apt-get update")
-            stdout,stderr = proxy.run("sudo apt-get upgrade -y")
-            stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
-            stdout,stderr = proxy.run("touch /home/ubuntu/first")
+            # commented due to touch trials 
+            # stdout,stderr = proxy.run("sudo apt-get update")
+            # stdout,stderr = proxy.run("sudo apt-get upgrade -y")
+            # stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
+            stdout,stderr = proxy.run("touch first")
             stdout,stderr = proxy.run("echo \"aa\" | tee -a /home/ubuntu/first")
 
 
