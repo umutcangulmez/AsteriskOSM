@@ -84,7 +84,7 @@ class SampleProxyCharm(SSHProxyCharm):
             stdout,stderr = proxy.run("sudo apt-get update")
             stdout,stderr = proxy.run("sudo apt-get upgrade -y")
             stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
-            stdout,stderr = proxy.run("touch aa")
+            stdout,stderr = proxy.run("touch /home/ubuntu/aa")
             with open("/home/ubuntu/aa", "a") as f:
                 f.write("Now the file has more content!")
             # cmd = "sudo sed -i 's\";\\[radius\\]\"\\[radius\\]\"g' /etc/asterisk/cdr.conf"
@@ -105,7 +105,6 @@ class SampleProxyCharm(SSHProxyCharm):
                 # cmd = "sudo sed -i 's\";radiuscfg => /usr/local/etc/radiusclient-ng/radiusclient.conf\"radiuscfg => /etc/radcli/radiusclient.conf\"g' /etc/asterisk/cel.conf"
                 # stdout,stderr = proxy.run(cmd)                
                 stdout,stderr = proxy.run("echo -e \"[general]\ncontext=internal\nallowguest=no\nallowoverlap=no\nbindport=5060\nbindaddr=0.0.0.0\nsrvlookup=no\ndisallow=all\nallow=ulaw\nalwaysauthreject=yes\ncanreinvite=no\nnat=yes\nsession-timers=refuse\nlocalnet=192.168.0.0/255.255.255.0 \" | sudo tee -a /etc/asterisk/sip.conf")
-                stdout,stderr = proxy.run("sudo touch aa ~/")
                 event.set_results({"output":stdout})
             except Exception as e:
                 event.fail("Action failed {}. Stderr: {}".format(e, stderr))                
