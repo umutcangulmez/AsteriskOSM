@@ -1,6 +1,6 @@
 # OSM Hackfest 11 Team Asterisk 1 NFV Onboarding 
 
-[OSM Hackfest 11](https://osm.etsi.org/wikipub/index.php/OSM11_Hackfest) Team Asterisk1 vnf onboarding progress. Main task of the Hackfest was onboarding [Asterisk](https://www.asterisk.org/) framework as a Virtual Network Function on OSM infrastructure.
+[OSM Hackfest 11](https://osm.etsi.org/wikipub/index.php/OSM11_Hackfest) Team Asterisk1 vnf onboarding progress. Main task of the Hackfest was onboarding [Asterisk](https://www.asterisk.org/) framework as a Virtual Network Function on OSM infrastructure. 
 
 ## Installation
 
@@ -32,7 +32,7 @@ osm ns-create --ns_name <asteriskOSM-ns> --nsd_name <asteriskOSM-ns> --vim_accou
 
 ## Day 1: VNF Services Initialization
 
-[Asterisk VOIP Server Setup](https://www.youtube.com/watch?v=rtHFdhCm434) used for Asterisk setup and config. Config file written line by line but It should have been written as a function that uploads given config file to asterisk path.
+Proxy Charm is used for Day1 and Day2 operations.[Asterisk VOIP Server Setup](https://www.youtube.com/watch?v=rtHFdhCm434) is followed for Asterisk setup and setting config. Although, Config file changed line by line by executing printf commands, It should have been written as a function that uploads given config file to asterisk path.
 
 
 
