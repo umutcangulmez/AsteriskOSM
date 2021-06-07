@@ -20,12 +20,12 @@ osm ns-create --ns_name <asteriskOSM-ns> --nsd_name <asteriskOSM-ns> --vim_accou
 
 ![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/ns.png)
 
-![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/images/ns2.png)
+![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/ns2.png)
 
 
 - Virtual Network Function (VNF) written as a 2 Virtual Deployment Units. One used for Asterisk in this purpose and the other one to serve as a softphone.  
 
-![Image of VNF](https://github.com/umutcangulmez/AsteriskOSM/images/vnf.png)
+![Image of VNF](https://github.com/umutcangulmez/AsteriskOSM/blob/main/vnf.png)
 
 
 
@@ -96,7 +96,7 @@ def restartasterisk(self,event):
 After initial-config-primitives run, you can ssh into vnf and see whether Asterisk is running:
 
 
-![Asterisk](https://github.com/umutcangulmez/AsteriskOSM/images/asterisk.png)
+![Asterisk](https://github.com/umutcangulmez/AsteriskOSM/blob/main/asterisk.png)
 
 
 
@@ -143,7 +143,7 @@ Operation: INSTANTIATING.042be29f-7a58-4b48-b98f-0360b2bfb0c2, Stage 2/5: deploy
 
 - The hook failed: "install" error solved by copying src/charm.py to hooks/install,hooks/start and hooks/upgrade-charm files. Constructing symbolic link to src/charm.py could be a solution too. 
 
-![Hook Install Failure](https://github.com/umutcangulmez/AsteriskOSM/images/hookinstallfailure.png)
+![Hook Install Failure](https://github.com/umutcangulmez/AsteriskOSM/blob/main/hookinstallfailure.png)
 
 
 
