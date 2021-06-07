@@ -18,7 +18,7 @@ osm ns-create --ns_name <asteriskOSM-ns> --nsd_name <asteriskOSM-ns> --vim_accou
 - Virtual Network Service written as:
 
 
-![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/images/ns.png)
+![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/ns.png)
 
 ![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/images/ns2.png)
 
