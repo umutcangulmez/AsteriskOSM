@@ -62,7 +62,7 @@ def configsip(self,event):
 
 ## Day 2: VNF Runtime Operations
 
-Adding an extension to a user, creating a SIP account and restarting asterisk service is written as a Runtime Operations.
+Adding an extension to a user, creating a SIP account and restarting asterisk service are written as Runtime Operations.
 
 ```python
 def addextension(self,event):
@@ -93,7 +93,7 @@ def restartasterisk(self,event):
     ...
 ```
 
-After initial-config-primitives run, you can ssh into vnf and see whether Asterisk is running:
+After initial-config-primitives execute, you can ssh into vnf and see whether Asterisk is running:
 
 
 ![Asterisk](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/asterisk.png)
