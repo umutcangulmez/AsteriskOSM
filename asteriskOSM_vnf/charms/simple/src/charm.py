@@ -44,8 +44,8 @@ class SampleProxyCharm(SSHProxyCharm):
         if self.model.unit.is_leader():           
             stderr = None
             try:
-                proxy = self.get_ssh_proxy()
 
+                proxy = self.get_ssh_proxy()
                 stdout,stderr = proxy.run("sudo apt-get update")
                 stdout,stderr = proxy.run("sudo apt-get upgrade -y")
                 stdout,stderr = proxy.run("sudo apt-get install asterisk -y")
@@ -74,7 +74,7 @@ class SampleProxyCharm(SSHProxyCharm):
             try:
                 proxy = self.get_ssh_proxy()
 
-                # normal thing to do but due to time limit couldn't check if it worked :(
+                # normal thing to do but due to time limit I couldn't check if it worked :(
                 # with open("sip.conf") as fp: 
                 #     while True:
                 #         line = fp.readline()
@@ -156,22 +156,18 @@ class SampleProxyCharm(SSHProxyCharm):
                 extensionId = str(extension)
                 proxy = self.get_ssh_proxy()
 
-                cmd = "printf '[internal]' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
-                cmd = "printf 'exten => "+extensionId+",1,Answer()' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
+ 
+                stdout,stderr = proxy.run("printf '[internal]' | sudo tee -a /etc/asterisk/extensions.conf")
+                
+                stdout,stderr = proxy.run("printf 'exten => "+extensionId+",1,Answer()' | sudo tee -a /etc/asterisk/extensions.conf")
                 stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
-                cmd = "printf 'exten => "+extensionId+",2,Dial(SIP/"+extensionId+",60) ' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("printf 'exten => "+extensionId+",2,Dial(SIP/"+extensionId+",60) ' | sudo tee -a /etc/asterisk/extensions.conf")
+                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf") 
+                stdout,stderr = proxy.run("printf 'exten => "+extensionId+",3,Playback(vm-nobodyavail) ' | sudo tee -a /etc/asterisk/extensions.conf")
                 stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
-                cmd = "printf 'exten => "+extensionId+",3,Playback(vm-nobodyavail) ' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("printf 'exten => "+extensionId+",4,VoiceMail("+extensionId+"@main) ' | sudo tee -a /etc/asterisk/extensions.conf")
                 stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
-                cmd = "printf 'exten => "+extensionId+",4,VoiceMail("+extensionId+"@main) ' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
-                stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
-                cmd = "printf 'exten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf"
-                stdout,stderr = proxy.run(cmd)
+                stdout,stderr = proxy.run("printf 'exten => "+extensionId+",5,Hangup() ' | sudo tee -a /etc/asterisk/extensions.conf")
                 stdout,stderr = proxy.run("echo | sudo tee -a /etc/asterisk/extensions.conf")
                                                                
 

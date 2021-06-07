@@ -22,7 +22,6 @@ vnfd:
       min-number-of-instances: 1
     - id: phoneVM
       min-number-of-instances: 1
-    # Todo
     lcm-operations-configuration:
       operate-vnf-op-config:
         day1-2:
