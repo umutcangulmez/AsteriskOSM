@@ -1,6 +1,6 @@
 # OSM Hackfest 11 Team Asterisk 1 NFV Onboarding 
 
-[OSM Hackfest 11](https://osm.etsi.org/wikipub/index.php/OSM11_Hackfest) Team Asterisk1 vnf onboarding progress. Main task of the Hackfest was onboarding [Asterisk](https://www.asterisk.org/) framework as a Virtual Network Function on OSM infrastructure.
+[OSM Hackfest 11](https://osm.etsi.org/wikipub/index.php/OSM11_Hackfest) Team Asterisk1 vnf onboarding progress. Main task of the Hackfest was onboarding [Asterisk](https://www.asterisk.org/) framework as a Virtual Network Function on OSM infrastructure. 
 
 ## Installation
 
@@ -18,21 +18,21 @@ osm ns-create --ns_name <asteriskOSM-ns> --nsd_name <asteriskOSM-ns> --vim_accou
 - Virtual Network Service written as:
 
 
-![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/images/ns.png)
+![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/ns.png)
 
-![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/images/ns2.png)
+![Image of NS](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/ns2.png)
 
 
 - Virtual Network Function (VNF) written as a 2 Virtual Deployment Units. One used for Asterisk in this purpose and the other one to serve as a softphone.  
 
-![Image of VNF](https://github.com/umutcangulmez/AsteriskOSM/images/vnf.png)
+![Image of VNF](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/vnf.png)
 
 
 
 
 ## Day 1: VNF Services Initialization
 
-[Asterisk VOIP Server Setup](https://www.youtube.com/watch?v=rtHFdhCm434) used for Asterisk setup and config. Config file written line by line but It should have been written as a function that uploads given config file to asterisk path.
+Proxy Charm is used for Day1 and Day2 operations. [Asterisk VOIP Server Setup](https://www.youtube.com/watch?v=rtHFdhCm434) is followed for Asterisk setup and setting config. Although, Config file changed line by line by executing printf commands, It should have been written as a function that uploads given config file to asterisk path.
 
 
 
@@ -62,7 +62,7 @@ def configsip(self,event):
 
 ## Day 2: VNF Runtime Operations
 
-Adding an extension to a user, creating a SIP account and restarting asterisk service is written as a Runtime Operations.
+Adding an extension to a user, creating a SIP account and restarting asterisk service are written as Runtime Operations.
 
 ```python
 def addextension(self,event):
@@ -93,10 +93,10 @@ def restartasterisk(self,event):
     ...
 ```
 
-After initial-config-primitives run, you can ssh into vnf and see whether Asterisk is running:
+After initial-config-primitives execute, you can ssh into vnf and see whether Asterisk is running:
 
 
-![Asterisk](https://github.com/umutcangulmez/AsteriskOSM/images/asterisk.png)
+![Asterisk](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/asterisk.png)
 
 
 
@@ -143,7 +143,7 @@ Operation: INSTANTIATING.042be29f-7a58-4b48-b98f-0360b2bfb0c2, Stage 2/5: deploy
 
 - The hook failed: "install" error solved by copying src/charm.py to hooks/install,hooks/start and hooks/upgrade-charm files. Constructing symbolic link to src/charm.py could be a solution too. 
 
-![Hook Install Failure](https://github.com/umutcangulmez/AsteriskOSM/images/hookinstallfailure.png)
+![Hook Install Failure](https://github.com/umutcangulmez/AsteriskOSM/blob/main/images/hookinstallfailure.png)
 
 
 
